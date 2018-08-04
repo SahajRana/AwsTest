@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AwsTest</string>
+    <string name="title_activity_after_login">AfterLoginActivity</string>
+</resources>

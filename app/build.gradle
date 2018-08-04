@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.amazonaws.appsync'
+apply plugin: 'com.apollographql.android'
+
+android {
+    compileSdkVersion 27
+    defaultConfig {
+        applicationId "com.rana.sahaj.awstest"
+        minSdkVersion 17
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.2'
+    implementation 'com.android.support:design:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    // androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.22@aar') { transitive = true }
+    implementation 'com.amazonaws:aws-android-sdk-apigateway-core:2.6.22'
+    implementation 'com.amazonaws:aws-android-sdk-lambda:2.2.22'
+    implementation 'com.amazonaws:aws-android-sdk-appsync:2.6.20'
+    implementation 'com.amazonaws:aws-android-sdk-appsync-compiler:2.6.20'
+    implementation 'org.eclipse.paho:org.eclipse.paho.client.mqttv3:1.2.0'
+    implementation 'org.eclipse.paho:org.eclipse.paho.android.service:1.1.1'
+    //implementation 'com.apollographql.apollo:apollo-runtime:0.5.0'
+
+    implementation('com.amazonaws:aws-android-sdk-mobile-client:2.6.+@aar') { transitive = true }
+    // Google SignIn
+    implementation('com.amazonaws:aws-android-sdk-auth-google:2.6.+@aar') {
+        transitive = true
+        exclude group: 'com.android.support'
+        exclude module: 'appcompat-v7'
+        exclude module: 'support-v4'
+    }
+    implementation('com.amazonaws:aws-android-sdk-auth-ui:2.6.+@aar') { transitive = true }
+}

@@ -1,0 +1,23 @@
+  query GetPost($mName: String!,$mClass: String!) {
+       singlePost(mCase: "1",mName: $mName, mClass: $mClass) {
+         mCase
+         mName
+         mClass
+       }
+     }
+
+    mutation PutPost($mName: String!,$mClass: String!) {
+       putPost(mCase: "2",mName: $mName, mClass: $mClass) {
+         mCase
+         mName
+         mClass
+       }
+     }
+
+    subscription PutPostSubs{
+      putPostRealTime{
+        mCase
+        mName
+        mClass
+      }
+    }
